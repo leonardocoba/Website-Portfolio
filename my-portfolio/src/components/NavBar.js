@@ -8,7 +8,6 @@ function Navbar({ sectionRefs }) {
     skills: useRef(null),
     experience: useRef(null),
     education: useRef(null),
-
     contact: useRef(null),
   };
   const sliderRef = useRef(null);

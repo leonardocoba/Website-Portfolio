@@ -8,7 +8,7 @@ function Home() {
     <div
       className="home"
       style={{
-        height: "80vh",
+        height: "100vh",
         width: "100%",
         position: "relative",
         display: "flex",
@@ -31,7 +31,7 @@ function Home() {
             width: "auto",
             position: "absolute",
             bottom: "0",
-            left: "0",
+            left: "-70px",
           }}
         />
       </div>
@@ -78,8 +78,8 @@ function Home() {
             rel="noopener noreferrer"
           >
             <button style={buttonStyle}>
-              <GitHubIcon style={{ marginRight: "5px" }} />
               GitHub
+              <GitHubIcon style={{ marginLeft: "5px" }} />
             </button>
           </a>
           <a
@@ -89,8 +89,8 @@ function Home() {
             rel="noopener noreferrer"
           >
             <button style={buttonStyle}>
-              <LinkedInIcon style={{ marginRight: "5px" }} />
               LinkedIn
+              <LinkedInIcon style={{ marginLeft: "5px" }} />
             </button>
           </a>
           <a
@@ -101,8 +101,8 @@ function Home() {
             rel="noopener noreferrer" // Security measure for target='_blank'
           >
             <button style={buttonStyle}>
-              <DownloadIcon style={{ marginRight: "5px" }} />
-              Download My Resume
+              Download Resume
+              <DownloadIcon style={{ marginLeft: "5px" }} />
             </button>
           </a>
         </div>

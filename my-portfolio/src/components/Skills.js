@@ -1,4 +1,5 @@
 import React from "react";
+import "./Skills.css";
 
 function Skills() {
   const skills = [
@@ -17,49 +18,27 @@ function Skills() {
     { name: "Charka UI", logo: "CharkaUI.png" },
     { name: "Microsoft Office", logo: "Microsoft Office.png" },
   ];
-  const skillItemStyle = {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    transition: "transform 0.3s ease", // Smooth transition for scaling
-    cursor: "pointer", // Changes the cursor to indicate the item is interactive
-  };
-
-  const onHoverStyle = {
-    transform: "scale(1.1)", // Scales up the item by 10%
-  };
 
   return (
-    <div style={{ textAlign: "center", paddingTop: "15vh" }}>
-      <h1>My Skills</h1>
-      <div
-        className="skills-container"
-        s
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(5, 1fr)", // Set to 5 columns
-          justifyContent: "center",
-          justifyItems: "center", // Centers items within their grid area
-          gap: "20px",
-          padding: "0 20px", // Add some padding if needed
-        }}
-      >
+    <div
+      style={{ textAlign: "center", paddingTop: "15vh", minHeight: "100vh" }}
+    >
+      <h1 style={{ paddingBottom: "5vh" }}>My Skills</h1>
+      <div className="skills-container">
         {skills.map((skill, index) => (
-          <div
-            key={index}
-            className="skill-item"
-            style={skillItemStyle}
-            onMouseEnter={(e) =>
-              (e.currentTarget.style.transform = "scale(1.1)")
-            }
-            onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
-          >
-            <img
-              src={`/logos/${skill.logo}`}
-              alt={skill.name}
-              style={{ width: "90px", height: "90px", marginBottom: "10px" }} // Added marginBottom for spacing between logo and text
-            />
-            <span>{skill.name}</span>
+          <div key={index} className="skill-item">
+            <div className="skill-content">
+              <img
+                src={`/logos/${skill.logo}`}
+                alt={skill.name}
+                style={{
+                  width: "85px",
+                  height: "85px",
+                  marginBottom: "10px",
+                }}
+              />
+              <span>{skill.name}</span>
+            </div>
           </div>
         ))}
       </div>

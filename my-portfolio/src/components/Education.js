@@ -2,12 +2,21 @@ import React from "react";
 
 function Education() {
   return (
-    <div style={{ paddingTop: "15rem", justifyContent: "center" }}>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        textAlign: "center",
+        paddingTop: "15vh",
+      }}
+    >
       <h1>My Education</h1>
       <div
         style={{
           height: "300px",
-          width: "500px",
+          width: "100%",
+          maxWidth: "600px",
           display: "flex", // Use Flexbox for layout
           backgroundColor: "lightgrey",
           borderRadius: "10px", // Optional: adds rounded corners to the box
@@ -16,10 +25,10 @@ function Education() {
           justifyContent: "center",
         }}
       >
-        {/* Logo container */}
         <div
           style={{
             width: "100%",
+            height: "100%",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
@@ -33,7 +42,7 @@ function Education() {
         </div>
 
         {/* Content container */}
-        <div style={{ width: "70%", padding: "20px" }}>
+        <div style={{ width: "70%", padding: "20px", textAlign: "left" }}>
           {/* Add your educational content here */}
           <h3 style={{ margin: 0 }}>University of Florida</h3>
           <p>Bachelor of Science in Computer Science</p>
