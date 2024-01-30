@@ -35,7 +35,6 @@ function App() {
     <div
       className="App"
       style={{
-        minHeight: "300vh", // Ensure the app container takes at least the full viewport height
         backgroundColor: "#FFFAFA",
       }}
     >

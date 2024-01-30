@@ -4,6 +4,7 @@
   flex-direction: column;
   align-items: center;
 }
+
 .project {
   width: 95%;
   height: 300px;
@@ -11,15 +12,43 @@
   background: #d3d3d3;
   border: 1px solid #000; /* Temporary border */
   border-radius: 1.5%;
+  display: flex; /* Changed to flex to align items side by side */
+  justify-content: space-between; /* Adjust as needed */
+  align-items: flex-end; /* Aligns items to the bottom */
+  margin-top: 3vh;
+  transition: background-color 0.3s ease; /* Smooth transition for background color */
 }
 
-.left-side {
-  left: 0;
+.project-text-box {
+  padding: 20px;
+  flex-grow: 1; /* Allows the text box to grow and fill available space */
 }
 
-.project img {
-  left: 50%;
-  margin-top: 10px;
-  height: 200px;
-  width: 100%;
+.project:hover {
+  background-color: #b8b8b8; /* Darker grey on hover */
+}
+
+.project-image {
+  height: 90%; /* Adjust height to maintain aspect ratio */
+  max-width: 50%;
+  transition: transform 0.3s ease; /* Smooth transition for transform */
+}
+
+.project:hover .project-image {
+  transform: rotate(-2deg); /* Tilts the image to the left a bit */
+}
+
+@media screen and (max-width: 1200px) {
+  .project {
+    flex-direction: column; /* Stack items vertically */
+    align-items: stretch; /* Stretch items to fill the width of the container */
+  }
+
+  .project-image {
+    display: none; /* Hide the image */
+  }
+
+  .project-text-box {
+    width: 100%; /* Make the text box fill the entire project box */
+  }
 }
