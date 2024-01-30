@@ -2,6 +2,7 @@ import React from "react";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import DownloadIcon from "@mui/icons-material/Download";
+import "./Home.css";
 
 function Home() {
   return (
@@ -77,9 +78,9 @@ function Home() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <button style={buttonStyle}>
+            <button className="Btn">
               GitHub
-              <GitHubIcon style={{ marginLeft: "5px" }} />
+              <GitHubIcon className="buttonIcon" />
             </button>
           </a>
           <a
@@ -88,9 +89,9 @@ function Home() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <button style={buttonStyle}>
+            <button className="Btn">
               LinkedIn
-              <LinkedInIcon style={{ marginLeft: "5px" }} />
+              <LinkedInIcon className="buttonIcon" />
             </button>
           </a>
           <a
@@ -100,9 +101,9 @@ function Home() {
             target="_blank" // Optional: Opens the PDF in a new tab
             rel="noopener noreferrer" // Security measure for target='_blank'
           >
-            <button style={buttonStyle}>
+            <button className="Btn">
               Download Resume
-              <DownloadIcon style={{ marginLeft: "5px" }} />
+              <DownloadIcon className="buttonIcon" />
             </button>
           </a>
         </div>
