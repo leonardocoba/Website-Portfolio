@@ -75,6 +75,65 @@ function Projects() {
 
         <div className="project">
           <div className="project-text-box">
+            <h1> Banter Mail </h1>
+            <div className="icons-container">
+              <h3> Made With:</h3>
+              <img
+                src={`${process.env.PUBLIC_URL}/logos/C++.png`}
+                className="madeWithIcons"
+                alt="C++"
+              />
+              <img
+                src={`${process.env.PUBLIC_URL}/logos/React.png`}
+                className="madeWithIcons"
+                alt="sfml"
+              />
+              <img
+                src={`${process.env.PUBLIC_URL}/logos/expo.png`}
+                className="madeWithIcons"
+                alt="sfml"
+              />
+            </div>
+            <p>
+              Banter Mail is the next generation of banking apps that can find
+              you the best and closest oppourtunities for cash back. Banter Mail
+              is a banking application that tracks your transaction, recommends
+              you credit cards based on your spedning, and finds your closest
+              most profitable cash back stores near you.
+            </p>
+            <div className="buttons-container">
+              <a
+                href="https://github.com/leonardocoba/Bandit-Banking"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="BtnLink"
+              >
+                <button className="Btn">
+                  Github <GitHubIcon className="buttonIcon" />
+                </button>
+              </a>
+              <a
+                href="https://www.youtube.com/watch?v=fOJ9nQgIhS4"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="BtnLink"
+              >
+                <button className="Btn">
+                  Demo <YouTubeIcon className="buttonIcon" />
+                </button>
+              </a>
+            </div>
+          </div>
+
+          <img
+            src={`${process.env.PUBLIC_URL}/imgs/bantermail.png`}
+            alt="Project"
+            className="project-image"
+          />
+        </div>
+
+        <div className="project">
+          <div className="project-text-box">
             <h1> AVL Trees </h1>
             <div className="icons-container">
               <h3> Made With:</h3>
