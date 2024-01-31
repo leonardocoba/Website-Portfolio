@@ -86,6 +86,13 @@
     width: 100%;
   }
 
+  .project-text-box p {
+    width: 100%;
+  }
+  .buttons-container {
+    width: 100;
+  }
+
   .icons-container {
     justify-content: space-around;
   }
