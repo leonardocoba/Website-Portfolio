@@ -44,7 +44,7 @@ const ParticleBackground = () => {
           },
           onHover: {
             enable: true,
-            mode: "connect",
+            mode: "push",
           },
         },
         modes: {

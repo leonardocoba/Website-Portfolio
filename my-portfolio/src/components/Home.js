@@ -3,19 +3,21 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import DownloadIcon from "@mui/icons-material/Download";
 import "./Home.css";
-
+import ParticleBackground from "./particles";
 function Home() {
   return (
     <div
       className="home"
       style={{
-        height: "100vh",
+        height: "75vh",
         width: "100%",
         position: "relative",
         display: "flex",
         backgroundColor: "#C4DFDF",
       }}
     >
+      <ParticleBackground />
+
       <div
         style={{
           width: "50%",
