@@ -1,0 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap");
+
+body {
+  font-family: "Raleway", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400; /* Use the default weight; override as needed in component-specific CSS */
+  font-style: normal;
+  background-color: #fffafa; /* It's better to move the background color here for consistency */
+}
