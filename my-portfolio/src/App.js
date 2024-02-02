@@ -12,7 +12,8 @@ import Education from "./components/Education";
 import Loader from "./components/loader";
 import Contact from "./components/contact";
 import Projects from "./components/Projects";
-import ParticleBackground from "./components/particles";
+import "./global.css";
+
 function App() {
   const homeRef = useRef(null);
   const projectsRef = useRef(null);
@@ -70,7 +71,6 @@ function App() {
           <div className="contact" ref={contactRef}>
             <Contact />
           </div>
-          <ParticleBackground />
         </>
       )}
     </div>
