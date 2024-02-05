@@ -44,9 +44,12 @@
   }
 }
 
+.skill-content {
+  transition: transform 0.5s ease; /* Smooth transition for any transform changes */
+}
+
 .skill-content:hover {
-  transform: scale(1.1); /* Scales up the item by 200% on hover */
-  transition: transform 0.3s ease; /* Smooth transition for scaling */
+  transform: scale(1.1); /* Scales up the content including logo and text */
 }
 .skill-item:nth-child(2) {
   animation-delay: 0.4s;
