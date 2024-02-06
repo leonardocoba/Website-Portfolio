@@ -1,21 +1,38 @@
 .skills-container {
-  position: relative;
-  width: 50%;
-  margin: auto;
+  max-width: 1200px;
+  margin: 0 auto; /* Center the container */
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  justify-content: center;
-  gap: 20px;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(180px, 1fr)
+  ); /* Adjust the minmax values as needed */
+  justify-items: center; /* Center items horizontally */
+  gap: 20px; /* Space between items */
   padding: 0 20px;
+}
+
+.skills-row {
+  display: flex;
+  justify-content: space-between; /* Space out skills within a row */
+  max-width: 1200px;
+  margin: 20px auto; /* Center the row and add vertical space between rows */
 }
 
 .skill-item {
   display: flex;
   flex-direction: column;
-  opacity: 0;
-  align-items: center;
-  cursor: pointer;
-  animation: moveUp 1s ease-out forwards; /* Apply the moveUp animation */
+  align-items: center; /* Center the content vertically and horizontally */
+  text-align: center;
+  flex: 1; /* Allow items to grow to fill the row */
+  min-width: 0; /* Prevent flex items from overflowing */
+}
+
+.skill-content img {
+  width: 85px;
+  height: 85px;
+  margin-bottom: 10px;
+  margin: 0 auto 10px; /* This centers the image and adds space below before the text */
+  display: block; /* This makes the image a block element */
 }
 
 @keyframes moveUp {

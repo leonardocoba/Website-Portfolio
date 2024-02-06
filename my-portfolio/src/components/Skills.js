@@ -19,29 +19,37 @@ function Skills() {
     { name: "Microsoft Office", logo: "Microsoft Office.png" },
   ];
 
+  const chunkSkills = (skills, chunkSize) =>
+    Array.from({ length: Math.ceil(skills.length / chunkSize) }, (_, i) =>
+      skills.slice(i * chunkSize, i * chunkSize + chunkSize)
+    );
+
+  // Create 3 rows with up to 5 skills per row
+  const skillRows = chunkSkills(skills, 5);
+
   return (
-    <div
-      style={{ textAlign: "center", paddingTop: "15vh", minHeight: "100vh" }}
-    >
+    <div style={{ textAlign: "center", paddingTop: "15vh", minHeight: "50vh" }}>
       <h1 style={{ paddingBottom: "5vh" }}>My Skills</h1>
-      <div className="skills-container">
-        {skills.map((skill, index) => (
-          <div key={index} className="skill-item">
-            <div className="skill-content">
-              <img
-                src={`/logos/${skill.logo}`}
-                alt={skill.name}
-                style={{
-                  width: "85px",
-                  height: "85px",
-                  marginBottom: "10px",
-                }}
-              />
-              <span>{skill.name}</span>
+      {skillRows.map((row, rowIndex) => (
+        <div key={`row-${rowIndex}`} className="skills-row">
+          {row.map((skill, skillIndex) => (
+            <div key={skill.name} className="skill-item">
+              <div className="skill-content">
+                <img
+                  src={`/logos/${skill.logo}`}
+                  alt={`${skill.name} logo`}
+                  style={{
+                    width: "85px",
+                    height: "85px",
+                    marginBottom: "10px",
+                  }}
+                />
+                <span>{skill.name}</span>
+              </div>
             </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
+      ))}
     </div>
   );
 }
