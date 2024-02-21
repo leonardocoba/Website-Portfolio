@@ -26,6 +26,31 @@ function Navbar({ sectionRefs }) {
     }
   };
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollPosition = window.scrollY + window.innerHeight / 2; // Adjust as needed
+
+      Object.keys(sectionRefs).forEach((key) => {
+        const ref = sectionRefs[key].current;
+        if (ref) {
+          const offsetTop = ref.offsetTop;
+          const offsetHeight = ref.offsetHeight;
+
+          if (
+            currentScrollPosition >= offsetTop &&
+            currentScrollPosition < offsetTop + offsetHeight
+          ) {
+            setActiveNav(key);
+          }
+        }
+      });
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [sectionRefs]);
+
   return (
     <div
       className="navbar"

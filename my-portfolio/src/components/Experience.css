@@ -14,7 +14,7 @@
   width: 50%;
   animation: movedown 1s linear forwards;
   opacity: 0;
-  z-index: 10;
+  z-index: 1;
 }
 
 @keyframes movedown {

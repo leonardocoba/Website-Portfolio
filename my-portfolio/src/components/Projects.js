@@ -269,7 +269,7 @@ function Projects() {
                 </button>
               </a>
               <a
-                href="https://www.youtube.com/watch?v=fOJ9nQgIhS4"
+                href="https://www.youtube.com/watch?v=fOJ9nQgIhS4&t=131s"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="BtnLink"
