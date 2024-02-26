@@ -82,7 +82,7 @@ const ParticleBackground = () => {
           density: {
             enable: true,
           },
-          value: 130, // Updated from 80 to 130 to add 50 more particles
+          value: 50, // Updated from 80 to 130 to add 50 more particles
         },
         opacity: {
           value: 0.5,
@@ -91,7 +91,7 @@ const ParticleBackground = () => {
           type: "circle",
         },
         size: {
-          value: { min: 1, max: 5 },
+          value: { min: 5, max: 10 },
         },
       },
       detectRetina: true,
@@ -101,11 +101,13 @@ const ParticleBackground = () => {
 
   if (init) {
     return (
-      <Particles
-        id="tsparticles"
-        particlesLoaded={particlesLoaded}
-        options={options}
-      />
+      <div className="particles-container">
+        <Particles
+          id="tsparticles"
+          particlesLoaded={particlesLoaded}
+          options={options}
+        />
+      </div>
     );
   }
 
