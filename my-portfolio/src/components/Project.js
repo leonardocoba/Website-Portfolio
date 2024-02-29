@@ -2,10 +2,11 @@ import React from "react";
 import { useInView } from "react-intersection-observer";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import YouTubeIcon from "@mui/icons-material/YouTube";
+import "./Projects.css";
 
 function Project({ project }) {
   const { ref, inView } = useInView({
-    threshold: 0.1, // Triggers when 10% of the project is visible
+    threshold: 0.5, // Triggers when 10% of the project is visible
   });
 
   return (
@@ -25,20 +26,10 @@ function Project({ project }) {
         </div>
         <p className="project-description">{project.description}</p>
         <div className="project-footer">
-          <a
-            href={project.githubLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="github-button"
-          >
+          <a href={project.githubLink} className="github-button">
             <GitHubIcon /> GitHub
           </a>
-          <a
-            href={project.demoLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="demo-button"
-          >
+          <a href={project.demoLink} className="demo-button">
             <YouTubeIcon /> Demo
           </a>
         </div>
