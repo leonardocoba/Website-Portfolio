@@ -43,7 +43,6 @@ function Education() {
 
         {/* Content container */}
         <div style={{ width: "70%", padding: "20px", textAlign: "left" }}>
-          {/* Add your educational content here */}
           <h3 style={{ margin: 0 }}>University of Florida</h3>
           <p>Bachelor of Science in Computer Science</p>
           <p>GPA: 3.4</p>
