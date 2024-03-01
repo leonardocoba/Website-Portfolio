@@ -24,11 +24,16 @@ function Skills() {
       skills.slice(i * chunkSize, i * chunkSize + chunkSize)
     );
 
-  // Create 3 rows with up to 5 skills per row
   const skillRows = chunkSkills(skills, 5);
 
   return (
-    <div style={{ textAlign: "center", paddingTop: "15vh", minHeight: "50vh" }}>
+    <div
+      style={{
+        textAlign: "center",
+        paddingTop: "15vh",
+        minHeight: "50vh",
+      }}
+    >
       <h1 style={{ paddingBottom: "5vh" }}>My Skills</h1>
       {skillRows.map((row, rowIndex) => (
         <div key={`row-${rowIndex}`} className="skills-row">
