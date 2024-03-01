@@ -7,3 +7,46 @@ body {
   font-style: normal;
   background-color: #fffafa; /* It's better to move the background color here for consistency */
 }
+.mode_button {
+  position: fixed; /* Keep the button in the same place */
+  bottom: 20px; /* Distance from the bottom */
+  right: 20px; /* Distance from the right */
+  width: 50px; /* Width of the button, adjusted to a reasonable size */
+  height: 50px; /* Height of the button, adjusted to a reasonable size */
+  border-radius: 50%; /* Make it circular */
+  border: none; /* No border */
+  cursor: pointer; /* Pointer cursor on hover */
+  display: flex; /* Center the content inside the button */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+
+  z-index: 1000;
+  transition: transform 0.3s ease; /* Smooth transition for the transform */
+}
+
+.mode_button:hover,
+.mode_button:hover svg {
+  transform: scale(1.1); /* Enlarge button and icon by 10% on hover */
+}
+/* Day mode icon style */
+.day-icon {
+  color: dimgray; /* Grey icon for day mode */
+}
+
+/* Night mode icon and button style */
+.night-icon {
+  color: lightgrey; /* Light grey icon for night mode */
+}
+.night-button {
+  background-color: #2b2f33; /* Darker grey than your background */
+  border: 1px solid lightgrey; /* Light grey border */
+}
+
+.light-mode-text {
+  color: #000; /* Black for light mode */
+}
+
+/* Dark mode text color */
+.dark-mode-text {
+  color: #fff; /* White for dark mode */
+}

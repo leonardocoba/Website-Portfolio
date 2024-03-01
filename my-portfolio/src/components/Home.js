@@ -13,7 +13,8 @@ function Home() {
         width: "100%",
         position: "relative",
         display: "flex",
-        backgroundColor: "#C4DFDF",
+        backgroundColor: "#1A202C",
+        border: "1px solid #000",
       }}
     >
       <ParticleBackground />

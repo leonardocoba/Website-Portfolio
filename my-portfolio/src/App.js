@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useState, useRef } from "react";
 import Navbar from "./components/NavBar";
 import Home from "./components/Home";
 import Skills from "./components/Skills";
@@ -7,6 +7,8 @@ import Education from "./components/Education";
 import Contact from "./components/contact";
 import Projects from "./components/Projects";
 import "./global.css";
+import LightModeIcon from "@mui/icons-material/LightMode";
+import NightsStayIcon from "@mui/icons-material/NightsStay";
 
 function App() {
   const homeRef = useRef(null);
@@ -15,14 +17,17 @@ function App() {
   const experienceRef = useRef(null);
   const educationRef = useRef(null);
   const contactRef = useRef(null);
+  const [isNightMode, setIsNightMode] = useState(false);
+
+  const toggleMode = () => {
+    setIsNightMode(!isNightMode); // Toggle the state
+  };
+
+  const modeClass = isNightMode ? "night-mode" : "day-mode";
+  const textColorClass = isNightMode ? "dark-mode-text" : "light-mode-text";
 
   return (
-    <div
-      className="App"
-      style={{
-        backgroundColor: "#FFFAFA",
-      }}
-    >
+    <div className={`App ${modeClass}`}>
       <Navbar
         sectionRefs={{
           home: homeRef,
@@ -33,24 +38,42 @@ function App() {
           contact: contactRef,
         }}
       />
+
       <div className="home" ref={homeRef}>
         <Home />
       </div>
-      <div className="skills" ref={skillsRef}>
-        <Skills />
+      <div
+        className={`Components ${modeClass} ${textColorClass}`}
+        style={{
+          backgroundColor: isNightMode ? "#1A202C" : "#FFFFFF",
+        }}
+      >
+        <div className="skills" ref={skillsRef}>
+          <Skills />
+        </div>
+        <div className="experience" ref={experienceRef}>
+          <Experience />
+        </div>
+        <div className="projects" ref={projectsRef}>
+          <Projects />
+        </div>
+        <div className="education" ref={educationRef}>
+          <Education />
+        </div>
+        <div className="contact" ref={contactRef}>
+          <Contact />
+        </div>
       </div>
-      <div className="experience" ref={experienceRef}>
-        <Experience />
-      </div>
-      <div className="projects" ref={projectsRef}>
-        <Projects />
-      </div>
-      <div className="education" ref={educationRef}>
-        <Education />
-      </div>
-      <div className="contact" ref={contactRef}>
-        <Contact />
-      </div>
+      <button
+        className={`mode_button ${isNightMode ? "night-button" : ""}`}
+        onClick={() => setIsNightMode(!isNightMode)}
+      >
+        {isNightMode ? (
+          <NightsStayIcon className="night-icon" />
+        ) : (
+          <LightModeIcon className="day-icon" />
+        )}
+      </button>
     </div>
   );
 }
