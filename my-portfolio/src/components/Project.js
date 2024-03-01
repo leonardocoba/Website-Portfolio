@@ -24,7 +24,9 @@ function Project({ project }) {
             />
           ))}
         </div>
-        <p className="project-description">{project.description}</p>
+        <div className="project-text-box">
+          <p className="project-description">{project.description}</p>
+        </div>
         <div className="project-footer">
           <a href={project.githubLink} className="github-button">
             <GitHubIcon /> GitHub

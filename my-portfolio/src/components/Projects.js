@@ -1,6 +1,5 @@
 import React from "react";
 import "./Projects.css";
-import { useInView } from "react-intersection-observer";
 
 import Project from "./Project";
 
