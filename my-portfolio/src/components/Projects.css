@@ -7,17 +7,19 @@
 
 .project {
   width: 95%;
-  height: 350px;
+  height: auto;
   max-width: 1100px;
-  background: #fffafa;
+  min-height: 300px;
+  background: rgb(231, 231, 231);
   border: 1px solid #000;
   border-radius: 1.5%;
   display: flex;
+  flex-direction: column; /* Changed to column to stack children */
+
   justify-content: space-between;
-  align-items: center; /* Changed to center to align items vertically */
   margin-top: 3vh;
   transform: scale(0.5);
-  transition: background-color 0.3s ease, transform 0.3s ease; /* Added transform to transition for image tilt */
+  transition: background-color 0.3s ease, transform 1s ease; /* Added transform to transition for image tilt */
   position: relative;
   overflow: hidden;
 }
@@ -26,7 +28,7 @@
 }
 
 .project:hover {
-  background-color: #b8b8b8; /* Darkens the background on hover */
+  background-color: #cccaca; /* Darkens the background on hover */
 }
 
 .project:hover .project-image {
@@ -40,6 +42,11 @@
   padding: 20px;
   flex-grow: 1;
   width: 50%; /* Adjust the width as necessary for side-by-side layout */
+}
+.project-title {
+  position: relative;
+  top: 0;
+  text-align: left;
 }
 
 .project-text-box h1,
@@ -63,11 +70,13 @@
 
 .project-image {
   height: 90%;
-  max-width: 50%; /* Adjust the width as necessary for side-by-side layout */
+  max-width: 50%;
+  min-width: 50%; /* Adjust the width as necessary for side-by-side layout */
   position: absolute;
   bottom: -20px;
   right: -20px;
-  transition: transform 0.3s ease;
+  transition: transform 0.15s ease;
+  transform-origin: bottom right; /* Set the origin of transformation to bottom right */
 }
 
 .buttons-container {
