@@ -29,6 +29,8 @@ function App() {
   return (
     <div className={`App ${modeClass}`}>
       <Navbar
+        isNightMode={isNightMode}
+        toggleMode={toggleMode}
         sectionRefs={{
           home: homeRef,
           skills: skillsRef,
@@ -49,19 +51,19 @@ function App() {
         }}
       >
         <div className="skills" ref={skillsRef}>
-          <Skills />
+          <Skills isNightMode={isNightMode} />
         </div>
         <div className="experience" ref={experienceRef}>
-          <Experience />
+          <Experience isNightMode={isNightMode} />
         </div>
         <div className="projects" ref={projectsRef}>
-          <Projects />
+          <Projects isNightMode={isNightMode} />
         </div>
         <div className="education" ref={educationRef}>
-          <Education />
+          <Education isNightMode={isNightMode} />
         </div>
         <div className="contact" ref={contactRef}>
-          <Contact />
+          <Contact isNightMode={isNightMode} />
         </div>
       </div>
       <button
