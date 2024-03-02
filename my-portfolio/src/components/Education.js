@@ -1,6 +1,8 @@
-import React from "react";
+function Education({ isNightMode }) {
+  // Define the background color for dark mode
+  const darkModeBackgroundColor = "rgb(38, 44, 58)"; // This is the same blue-grey color used before
+  const lightModeBackgroundColor = "lightgrey"; // Define the color for light mode
 
-function Education() {
   return (
     <div
       style={{
@@ -17,11 +19,13 @@ function Education() {
           height: "300px",
           width: "100%",
           maxWidth: "600px",
-          display: "flex", // Use Flexbox for layout
-          backgroundColor: "lightgrey",
-          borderRadius: "10px", // Optional: adds rounded corners to the box
-          boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)", // Optional: adds a subtle shadow to the box
-          overflow: "hidden", // Ensures content does not spill outside the box
+          display: "flex",
+          backgroundColor: isNightMode
+            ? darkModeBackgroundColor
+            : lightModeBackgroundColor,
+          borderRadius: "10px",
+          boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+          overflow: "hidden",
           justifyContent: "center",
         }}
       >
