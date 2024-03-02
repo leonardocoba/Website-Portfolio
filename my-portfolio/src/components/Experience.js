@@ -1,7 +1,14 @@
-import React from "react";
+import { React, useEffect } from "react";
 import "./Experience.css";
 
-function Experience() {
+function Experience({ isNightMode }) {
+  useEffect(() => {
+    if (isNightMode) {
+      document.body.setAttribute("data-theme", "dark");
+    } else {
+      document.body.removeAttribute("data-theme");
+    }
+  }, [isNightMode]);
   return (
     <div>
       <h1 style={{ textAlign: "center", paddingTop: "15rem" }}>
@@ -11,7 +18,8 @@ function Experience() {
         <div className="container left-container">
           <img
             src={`${process.env.PUBLIC_URL}/imgs/carrebra.svg`}
-            alt="Carrebra Logo" // Added alt attribute for accessibility
+            alt="Carrebra Logo"
+            style={{ backgroundColor: "white" }}
           />
           <div className="text-box">
             <h2>Carrebra Software Developer Intern</h2>
@@ -31,7 +39,7 @@ function Experience() {
         <div className="container right-container">
           <img
             src={`${process.env.PUBLIC_URL}/imgs/shpe.png`}
-            alt="SHPE Logo" // Added alt attribute for accessibility
+            alt="SHPE Logo"
           />
           <div className="text-box">
             <h2>SHPE Autonomous Vehicle Team Member (Programmer)</h2>
