@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 
-function Navbar({ sectionRefs }) {
+function Navbar({ sectionRefs, isNightMode }) {
   const [activeNav, setActiveNav] = useState("home");
   const navRefs = {
     home: useRef(null),
@@ -53,14 +53,14 @@ function Navbar({ sectionRefs }) {
 
   return (
     <div
-      className="navbar"
+      className={`navbar ${isNightMode ? "navbar-dark" : "navbar-light"}`}
       style={{
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        width: "90vw",
+        width: "50%",
         height: "4em",
-        backgroundColor: "#F8F6F4",
+        backgroundColor: isNightMode ? "#0a192f" : "#F8F6F4", // Example color change for dark mode
         borderRadius: "1rem",
         position: "fixed",
         top: "2rem",
@@ -89,7 +89,10 @@ function Navbar({ sectionRefs }) {
             key={item}
             ref={navRefs[item]}
             href={`#${item}`}
-            style={{ textDecoration: "none", color: "inherit" }}
+            style={{
+              textDecoration: "none",
+              color: isNightMode ? "white" : "black",
+            }}
             onClick={(e) => {
               e.preventDefault(); // Prevents the default anchor link behavior
               setActiveNav(item); // Sets the active nav state
@@ -106,7 +109,7 @@ function Navbar({ sectionRefs }) {
         className="slider-indicator"
         style={{
           height: "5px",
-          backgroundColor: "black",
+          backgroundColor: isNightMode ? "white" : "black",
           position: "absolute",
           bottom: "0",
           transition: "left 0.3s ease, width 0.3s ease",
