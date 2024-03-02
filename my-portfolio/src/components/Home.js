@@ -17,7 +17,7 @@ function Home() {
         border: "1px solid #000",
       }}
     >
-      <ParticleBackground />
+      {/* <ParticleBackground /> */}
 
       <div
         style={{
