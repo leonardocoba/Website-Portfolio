@@ -1,4 +1,4 @@
-import React from "react";
+import { React, useEffect } from "react";
 import "./Projects.css";
 
 import Project from "./Project";
@@ -56,7 +56,14 @@ const projectsData = [
   },
 ];
 
-function Projects() {
+function Projects({ isNightMode }) {
+  useEffect(() => {
+    if (isNightMode) {
+      document.body.setAttribute("data-theme", "dark");
+    } else {
+      document.body.removeAttribute("data-theme");
+    }
+  }, [isNightMode]);
   return (
     <div>
       <h1 style={{ textAlign: "center", paddingTop: "15vh" }}>My Projects</h1>
