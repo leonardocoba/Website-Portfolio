@@ -17,7 +17,7 @@ const projectsData = [
   {
     title: "Banter Mail",
     description:
-      "Banter Mail is the next generation of banking apps that tracks your transactions, recommends credit cards based on your spending, and finds the closest, most profitable cash back stores near you.",
+      "Banter Mail is the next generation of banking apps that tracks your transactions, recommends credit cards based on your spending, and finds the closest, most profitable cash back stores near you. The app uses the integration of Apple Maps API to find the GeoLocation of the user for the best cash back opportunities.",
     madeWithIcons: ["C++", "React", "expo"],
     githubLink: "https://github.com/leonardocoba/Bandit-Banking",
     demoLink: "https://www.youtube.com/watch?v=fOJ9nQgIhS4",

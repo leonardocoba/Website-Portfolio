@@ -22,11 +22,27 @@
     border-color 0.3s ease; /* Added border-color to transition */
   position: relative;
   overflow: hidden;
+  padding: 20px;
 }
 .project.is-inView {
   transform: scale(1); /* Grow to full size when in view */
 }
-
+.tech-stack {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px; /* Spacing between icons and text */
+}
+.icons-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px; /* Spacing between icons */
+}
+.tech-stack {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Spacing between the text and the icons */
+}
 .project:hover {
   background-color: var(
     --project-hover-bg-color
@@ -49,6 +65,7 @@
   position: relative;
   top: 0;
   text-align: left;
+  font-weight: bold;
 }
 
 .project-text-box h1,
@@ -62,7 +79,9 @@
   overflow: auto;
   margin: 0;
 }
-
+.made-with-text {
+  white-space: nowrap; /* Ensure this text does not wrap */
+}
 .madeWithIcons {
   height: 35px; /* Corrected the unit from 35x to 35px */
   width: 35px;
@@ -80,7 +99,12 @@
   transition: transform 0.15s ease;
   transform-origin: bottom right; /* Set the origin of transformation to bottom right */
 }
-
+.madeWith-container {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 20px; /* Add space between the project description and the Made With section */
+}
 .buttons-container {
   display: flex;
   justify-content: center;
@@ -88,15 +112,17 @@
   margin-top: 20px;
   width: 50%; /* Adjust the width as necessary for side-by-side layout */
 }
-
-.icons-container {
-  margin-top: 10px;
-  width: 100%; /* Set to 100% to take full width of its container */
-  display: flex;
-  flex-wrap: wrap; /* Wrap icons if not enough space */
-  justify-content: flex-start; /* Align icons to the start */
+.madeWith-icon {
+  margin-right: 5px;
+  height: 35px;
+  width: 35px;
 }
-
+.icons-container {
+  display: flex;
+  flex-wrap: nowrap; /* Prevent the icons from wrapping to a new line */
+  align-items: center; /* Align the icons with the text vertically */
+  gap: 5px; /* Spacing between icons */
+}
 @media screen and (max-width: 1200px) {
   .project {
     flex-direction: column;
@@ -115,60 +141,88 @@
 }
 
 /* Button Styles */
-.Btn {
-  width: 130px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: rgb(15, 15, 15);
-  border: none;
-  color: white;
-  font-weight: 600;
-  gap: 8px;
+.button {
   cursor: pointer;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.103);
   position: relative;
+  padding: 10px 24px;
+  font-size: 18px;
+  color: var(
+    --button-text-color,
+    black
+  ); /* Default to black, override in dark mode */
+  border: 2px solid var(--button-border-color, black); /* Default to black, override in dark mode */
+  border-radius: 34px;
+  background-color: transparent;
+  font-weight: 600;
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
   overflow: hidden;
-  transition: all 0.3s ease; /* Apply transition to all properties for smooth effect */
+}
+
+.button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 50px;
+  height: 50px;
+  transform: scale(0);
+  z-index: -1;
+  background-color: var(
+    --button-fill-color,
+    rgb(0, 0, 0)
+  ); /* Default to light, override in dark mode */
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.button:hover::before {
+  transform: scale(3);
+}
+
+.button:hover {
+  color: var(
+    --button-hover-text-color,
+    rgb(255, 255, 255)
+  ); /* Default to black, override in dark mode */
+  transform: scale(1.1);
+  box-shadow: 0 0px 20px var(--button-shadow-color, rgba(0, 0, 0, 0.4));
+
+  /* Default to light shadow, override in dark mode */
+}
+
+.button:active {
+  transform: scale(1);
 }
 
 .buttonIcon {
   width: 16px;
-  fill: white;
-}
-
-.Btn::before {
-  width: 130px;
-  height: 130px;
-  position: absolute;
-  content: "";
-  background-color: white;
-  border-radius: 50%;
-  left: -100%;
-  top: 0;
-  transition: all 0.3s ease; /* Apply transition to all properties for smooth effect */
-}
-
-.Btn:hover::before {
-  transform: translate(100%, -50%);
-  border-radius: 0;
-}
-
-.Btn:active {
-  transform: translate(5px, 5px);
+  fill: var(
+    --button-icon-fill,
+    white
+  ); /* Default to white, override in dark mode */
 }
 
 :root {
   --project-bg-color: rgb(231, 231, 231); /* Light grey for light mode */
-  --project-hover-bg-color: #cccaca; /* Slightly darker grey for hover in light mode */
+  --project-hover-bg-color: #cccaca;
+  /* Slightly darker grey for hover in light mode */
 }
 
 [data-theme="dark"] {
   --project-bg-color: rgb(38, 44, 58); /* Blue for dark mode */
-  --project-hover-bg-color: rgb(
-    56,
-    61,
-    73
-  ); /* Lighter blue for hover in dark mode */
+  --project-hover-bg-color: rgb(56, 61, 73);
+  --button-text-color: rgb(255, 255, 255); /* Black text in dark mode */
+  --button-border-color: rgb(255, 255, 255); /* Black border in dark mode */
+  --button-fill-color: rgb(255, 255, 255); /* Transparent fill in dark mode */
+  --button-hover-text-color: rgb(
+    0,
+    0,
+    0
+  ); /* White text on hover in dark mode */
+  --button-shadow-color: rgba(
+    255,
+    255,
+    255,
+    0.479
+  ); /* White shadow on hover in dark mode */
+  --button-icon-fill: white;
 }
