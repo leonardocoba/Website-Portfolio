@@ -3,8 +3,10 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import DownloadIcon from "@mui/icons-material/Download";
 import "./Home.css";
+
 import ParticleBackground from "./particles";
-function Home({}) {
+
+function Home() {
   return (
     <div
       className="home"
@@ -21,7 +23,7 @@ function Home({}) {
 
       <div
         style={{
-          width: "50%",
+          width: "25%",
           height: "100%",
           position: "relative",
           zIndex: 1,
@@ -53,16 +55,25 @@ function Home({}) {
             flex: 1,
             padding: "20px",
             boxSizing: "border-box",
-            marginTop: "5rem",
+            display: "flex", // Use flexbox to center content
+            flexDirection: "column", // Stack children vertically
+            justifyContent: "center", // Center vertically in the container
+            alignItems: "center", // Center horizontally in the container
+            height: "100%", // Ensure the div takes full height of the parent
+            textAlign: "center", // Center text alignment
+            marginTop: "10rem",
           }}
         >
-          <h1 style={{ color: "white", fontSize: "2rem" }}>
-            Welcome to my portfolio, my name is Leonardo Cobaleda!
-          </h1>
-          <p style={{ color: "white" }}>
-            I am a Computer Science major at the University of Florida also
-            minoring in Entrepreneurship. I aspire to become a full stack
-            developer with integrations of Artificial Intelligence.
+          <p style={{ color: "white", fontSize: "2rem" }}>
+            Hello, I'm Leonardo but you can call me Leo. I'm an aspiring
+            software engineer studying at the University of Florida. My passion
+            lies in developing innovative web and mobile applications, primarily
+            using JavaScript, React/React Native, and Python. This summer, I'm
+            excited to enhance my skills through an internship at Microsoft in
+            Atlanta. Outside of coding, I stay active by working out, playing
+            basketball, and cherishing moments with family and friends. I invite
+            you to explore my website and get a full picture of my professional
+            / academic journey.
           </p>
         </div>
 
