@@ -1,46 +1,47 @@
 .Btn {
-  width: 130px;
-  height: 40px;
+  cursor: pointer;
+  position: relative;
+  padding: 10px 24px;
+  font-size: 18px;
+  color: rgb(255, 255, 255); /* White text for dark mode */
+  border: 2px solid rgb(255, 255, 255); /* White border for dark mode */
+  border-radius: 34px;
+  background-color: transparent;
+  font-weight: 600;
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgb(15, 15, 15);
-  border: none;
-  color: white;
-  font-weight: 600;
-  gap: 8px;
-  cursor: pointer;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.103);
-  position: relative;
-  overflow: hidden;
-  transition-duration: 0.3s;
+  gap: 8px; /* Maintain spacing between text and icon */
+}
+
+.Btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: scale(0);
+  z-index: -1;
+  background-color: rgb(255, 255, 255); /* White fill for dark mode */
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  border-radius: 34px; /* Match the button's border-radius */
+}
+
+.Btn:hover::before {
+  transform: scale(3);
+}
+
+.Btn:hover {
+  color: rgb(0, 0, 0); /* Black text on hover for dark mode */
+  transform: scale(1.1);
+  box-shadow: 0 0px 20px rgba(255, 255, 255, 0.479); /* White shadow on hover for dark mode */
+}
+
+.Btn:active {
+  transform: scale(1);
 }
 
 .buttonIcon {
   width: 16px;
-  fill: white;
-}
-
-.Btn::before {
-  width: 130px;
-  height: 130px;
-  position: absolute;
-  content: "";
-  background-color: white;
-  border-radius: 50%;
-  left: -100%;
-  top: 0;
-  transition-duration: 0.3s;
-  mix-blend-mode: difference;
-}
-
-.Btn:hover::before {
-  transition-duration: 0.3s;
-  transform: translate(100%, -50%);
-  border-radius: 0;
-}
-
-.Btn:active {
-  transform: translate(5px, 5px);
-  transition-duration: 0.3s;
+  fill: white; /* White icon fill for dark mode */
 }

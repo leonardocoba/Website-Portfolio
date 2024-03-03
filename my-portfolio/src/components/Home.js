@@ -4,7 +4,7 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import DownloadIcon from "@mui/icons-material/Download";
 import "./Home.css";
 import ParticleBackground from "./particles";
-function Home() {
+function Home({}) {
   return (
     <div
       className="home"
@@ -114,19 +114,5 @@ function Home() {
     </div>
   );
 }
-
-const buttonStyle = {
-  borderRadius: "50%",
-  minWidth: "120px",
-  height: "60px",
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-  backgroundColor: "grey",
-  border: "none",
-  cursor: "pointer",
-  padding: "0 10px",
-  color: "white",
-};
 
 export default Home;
