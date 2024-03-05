@@ -34,7 +34,10 @@
 .Btn:hover {
   color: rgb(0, 0, 0); /* Black text on hover for dark mode */
   transform: scale(1.1);
-  box-shadow: 0 0px 20px rgba(255, 255, 255, 0.479); /* White shadow on hover for dark mode */
+  box-shadow: 0 0px 20px rgba(255, 255, 255, 0.479);
+  .buttonIcon {
+    fill: black;
+  }
 }
 
 .Btn:active {
@@ -44,4 +47,28 @@
 .buttonIcon {
   width: 16px;
   fill: white; /* White icon fill for dark mode */
+}
+
+.welcome {
+  font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+  font-weight: bold;
+  color: white;
+}
+.intro {
+  font-size: clamp(1.25rem, 2vw, 1.5rem);
+  font-weight: bold;
+  color: white;
+}
+.particles-js {
+  height: 80vh;
+  position: relative;
+
+  canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+  }
 }

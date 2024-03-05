@@ -19,7 +19,7 @@ function Home() {
         border: "1px solid #000",
       }}
     >
-      {/* <ParticleBackground /> */}
+      <ParticleBackground />
 
       <div
         style={{
@@ -64,12 +64,9 @@ function Home() {
             marginTop: "10rem",
           }}
         >
-          <h1 style={{ color: "white", fontSize: "3rem" }}>
-            {" "}
-            Welcome to my Website!
-          </h1>
-          <p style={{ color: "white", fontSize: "2rem" }}>
-            I'm Leonardo, but you can call me leo. I'm an aspiring software
+          <h1 className="welcome"> Welcome to my Website!</h1>
+          <p className="intro">
+            I'm Leonardo, but you can call me Leo. I'm an aspiring software
             engineer studying at the University of Florida. This summer I'm
             excited to enhance my skills through an internship at Microsoft in
             Atlanta. I invite you to explore my website and get a full picture
