@@ -35,9 +35,10 @@
   color: rgb(0, 0, 0); /* Black text on hover for dark mode */
   transform: scale(1.1);
   box-shadow: 0 0px 20px rgba(255, 255, 255, 0.479);
-  .buttonIcon {
-    fill: black;
-  }
+}
+
+.Btn:hover .buttonIcon {
+  fill: black; /* Change icon color on hover */
 }
 
 .Btn:active {
@@ -48,14 +49,59 @@
   width: 16px;
   fill: white; /* White icon fill for dark mode */
 }
+.home {
+  height: 60vh;
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #1a202c;
+  border: 1px solid #000;
+}
+
+.profile-image-container {
+  width: 120px; /* Fixed size for the image container */
+  height: 120px; /* Fixed size for the image container */
+  border-radius: 50%; /* Makes the container circular */
+  overflow: hidden; /* Ensures the image doesn't overflow its container */
+  border: 3px solid white; /* White border around the image */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px; /* Space between image and text */
+}
+
+.profile-image-container img {
+  width: 100%; /* Ensures the image covers the container */
+  height: auto; /* Maintains aspect ratio */
+  display: block; /* Removes bottom space under the image */
+}
+
+.main-content {
+  text-align: center; /* Centers the text */
+  padding: 20px; /* Adds some padding */
+}
 
 .welcome {
   font-size: clamp(1.5rem, 3.5vw, 2.5rem);
   font-weight: bold;
   color: white;
 }
+
 .intro {
   font-size: clamp(1.25rem, 2vw, 1.5rem);
   font-weight: bold;
   color: white;
+}
+
+.buttons-section {
+  padding-top: 2vh;
+  display: flex;
+  justify-content: center;
+  gap: 20px; /* Spacing between buttons */
+}
+a {
+  text-decoration: none; /* Removes underline from links */
 }
