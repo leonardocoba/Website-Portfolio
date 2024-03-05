@@ -64,9 +64,7 @@ function Experience({ isNightMode }) {
 
   return (
     <div>
-      <h1 style={{ textAlign: "center", paddingTop: "15rem" }}>
-        My Experience
-      </h1>
+      <h1 style={{ textAlign: "center", paddingTop: "12vh" }}>My Experience</h1>
       <div className={`timeline ${startAnimations ? "animate-timeline" : ""}`}>
         {experiences.map((experience, index) => (
           <div
