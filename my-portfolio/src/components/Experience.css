@@ -12,9 +12,12 @@
   padding: 10px 50px;
   position: relative;
   width: 50%;
-  animation: movedown 1s linear forwards;
   opacity: 0;
   z-index: 1;
+}
+
+.animate {
+  animation: movedown 1s linear forwards;
 }
 
 @keyframes movedown {
@@ -71,6 +74,7 @@
 }
 
 .timeline::after {
+  animation: none;
   content: "";
   position: absolute;
   width: 6px;
@@ -80,16 +84,19 @@
   left: 50%;
   margin-left: -3px;
   z-index: 0;
-  animation: moveline 3.3s linear forwards;
   padding-top: 15vh;
 }
+.animate-timeline::after {
+  animation: moveline 3.3s linear forwards;
+}
+
 @keyframes moveline {
   0% {
     height: 0;
     z-index: 0;
   }
   100% {
-    height: 75%;
+    height: 70%;
     z-index: 0;
   }
 }
