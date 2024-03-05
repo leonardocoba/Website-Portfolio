@@ -66,7 +66,7 @@ function Projects({ isNightMode }) {
   }, [isNightMode]);
   return (
     <div>
-      <h1 style={{ textAlign: "center", paddingTop: "10vh" }}>My Projects</h1>
+      <h1 style={{ textAlign: "center", paddingTop: "5vh" }}>My Projects</h1>
       <div className="projects-container">
         {projectsData.map((project, index) => (
           <Project key={index} project={project} />
