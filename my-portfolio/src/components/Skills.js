@@ -18,6 +18,7 @@ function Skills() {
     { name: "Material UI", logo: "MaterialUI.png" },
     { name: "Chakra UI", logo: "ChakraUI.png" },
     { name: "Microsoft Office", logo: "MicrosoftOffice.png" },
+    { name: "Swift UI", logo: "SwiftUI.png" },
   ];
 
   const chunkSkills = (skills, chunkSize) =>

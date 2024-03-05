@@ -39,9 +39,11 @@ function Project({ project }) {
         <a href={project.githubLink} className="button github-button">
           <GitHubIcon className="buttonIcon" /> GitHub
         </a>
-        <a href={project.demoLink} className="button demo-button">
-          <YouTubeIcon className="buttonIcon" /> Demo
-        </a>
+        {project.demoLink && (
+          <a href={project.demoLink} className="button demo-button">
+            <YouTubeIcon className="buttonIcon" /> Demo
+          </a>
+        )}
       </div>
     </div>
   );
