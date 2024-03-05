@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import { useInView } from "react-intersection-observer";
 import "./Skills.css";
 
 function Skills() {
@@ -15,8 +16,8 @@ function Skills() {
     { name: "NodeJS", logo: "NodeJS.png" },
     { name: "React / Native", logo: "React.png" },
     { name: "Material UI", logo: "MaterialUI.png" },
-    { name: "Charka UI", logo: "CharkaUI.png" },
-    { name: "Microsoft Office", logo: "Microsoft Office.png" },
+    { name: "Chakra UI", logo: "ChakraUI.png" },
+    { name: "Microsoft Office", logo: "MicrosoftOffice.png" },
   ];
 
   const chunkSkills = (skills, chunkSize) =>
@@ -36,23 +37,45 @@ function Skills() {
     >
       <h1 style={{ paddingBottom: "5vh" }}>My Skills</h1>
       {skillRows.map((row, rowIndex) => (
-        <div key={`row-${rowIndex}`} className="skills-row">
-          {row.map((skill, skillIndex) => (
-            <div key={skill.name} className="skill-item">
-              <div className="skill-content">
-                <img
-                  src={`/logos/${skill.logo}`}
-                  alt={`${skill.name} logo`}
-                  style={{
-                    width: "85px",
-                    height: "85px",
-                    marginBottom: "10px",
-                  }}
-                />
-                <span>{skill.name}</span>
-              </div>
-            </div>
-          ))}
+        <SkillRow key={rowIndex} row={row} rowIndex={rowIndex} />
+      ))}
+    </div>
+  );
+}
+
+function SkillRow({ row, rowIndex }) {
+  const [isVisible, setIsVisible] = useState(false);
+  const { ref, inView } = useInView({
+    threshold: 0.5,
+    triggerOnce: true,
+  });
+
+  React.useEffect(() => {
+    if (inView) {
+      setIsVisible(true);
+    }
+  }, [inView]);
+
+  return (
+    <div ref={ref} className="skills-row">
+      {row.map((skill, skillIndex) => (
+        <div
+          key={skill.name}
+          className={`skill-item ${isVisible ? "visible" : ""}`}
+          style={{ animationDelay: `${skillIndex * 0.1}s` }}
+        >
+          <div className="skill-content">
+            <img
+              src={`/logos/${skill.logo}`}
+              alt={`${skill.name} logo`}
+              style={{
+                width: "85px",
+                height: "85px",
+                marginBottom: "10px",
+              }}
+            />
+            <span>{skill.name}</span>
+          </div>
         </div>
       ))}
     </div>

@@ -110,3 +110,31 @@
 .skill-item:nth-child(14) {
   animation-delay: 2.1s;
 }
+
+.skill-item.in-view {
+  animation: moveUp 0.5s ease forwards;
+}
+
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.visible {
+  animation-name: bounceIn;
+  animation-duration: 1s; /* Adjust the duration as needed */
+  animation-fill-mode: both; /* Keep the final state after the animation completes */
+}
