@@ -84,3 +84,50 @@
 .form button:hover {
   background-color: #27408b;
 }
+/* Existing styles... */
+
+/* Dark Mode Styles */
+.dark-mode {
+  --project-bg-color: rgb(38, 44, 58); /* Dark blue/grey */
+  --project-hover-bg-color: rgb(56, 61, 73);
+  --button-text-color: #fff; /* White text */
+  --button-border-color: #fff; /* White borders */
+  --button-fill-color: transparent;
+  --button-hover-text-color: #000; /* Black text on hover */
+  --button-shadow-color: rgba(255, 255, 255, 0.479); /* White shadow on hover */
+  --button-icon-fill: #fff; /* White icons */
+}
+
+.dark-mode .card {
+  background-color: var(--project-bg-color); /* Dark blue/grey background */
+}
+
+.dark-mode .form .group input,
+.dark-mode .form .group textarea {
+  color: #fff; /* White text in inputs */
+  border: 1px solid #fff; /* White borders for inputs */
+}
+
+.dark-mode .form .group label {
+  color: #ffffff;
+  background-color: rgb(38, 44, 58); /* White labels */
+}
+
+/* Adjust the color of text and placeholders inside input fields */
+.dark-mode .form .group input::placeholder,
+.dark-mode .form .group textarea::placeholder {
+  color: #fff;
+  /* White placeholder text */
+}
+
+/* Ensure the focus state is also styled for dark mode */
+.dark-mode .form .group input:focus,
+.dark-mode .form .group textarea:focus {
+  border-color: #3366cc; /* White border on focus */
+}
+
+.dark-mode .form .group input:focus + label,
+.dark-mode .form .group textarea:focus + label {
+  color: #3366cc; /* White label on focus */
+  background-color: rgb(38, 44, 58);
+}
