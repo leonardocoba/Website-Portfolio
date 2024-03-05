@@ -10,7 +10,7 @@ function Education({ isNightMode }) {
         flexDirection: "column",
         alignItems: "center",
         textAlign: "center",
-        paddingTop: "5vh", // Space above the title
+        paddingTop: "12vh", // Space above the title
         paddingBottom: "5vh", // Space below the content
       }}
     >
