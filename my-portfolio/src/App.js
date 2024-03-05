@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import Navbar from "./components/NavBar";
 import Home from "./components/Home";
 import Skills from "./components/Skills";
@@ -17,7 +17,15 @@ function App() {
   const experienceRef = useRef(null);
   const educationRef = useRef(null);
   const contactRef = useRef(null);
-  const [isNightMode, setIsNightMode] = useState(false);
+
+  const [isNightMode, setIsNightMode] = useState(() => {
+    const savedMode = localStorage.getItem("isNightMode");
+    return savedMode === "true" ? true : false;
+  });
+  useEffect(() => {
+    // Save the dark mode state to localStorage whenever it changes
+    localStorage.setItem("isNightMode", isNightMode);
+  }, [isNightMode]);
 
   const toggleMode = () => {
     setIsNightMode(!isNightMode); // Toggle the state
