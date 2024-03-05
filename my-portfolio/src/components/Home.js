@@ -64,16 +64,16 @@ function Home() {
             marginTop: "10rem",
           }}
         >
+          <h1 style={{ color: "white", fontSize: "3rem" }}>
+            {" "}
+            Welcome to my Website!
+          </h1>
           <p style={{ color: "white", fontSize: "2rem" }}>
-            Hello, I'm Leonardo but you can call me Leo. I'm an aspiring
-            software engineer studying at the University of Florida. My passion
-            lies in developing innovative web and mobile applications, primarily
-            using JavaScript, React/React Native, and Python. This summer, I'm
+            I'm Leonardo, but you can call me leo. I'm an aspiring software
+            engineer studying at the University of Florida. This summer I'm
             excited to enhance my skills through an internship at Microsoft in
-            Atlanta. Outside of coding, I stay active by working out, playing
-            basketball, and cherishing moments with family and friends. I invite
-            you to explore my website and get a full picture of my professional
-            / academic journey.
+            Atlanta. I invite you to explore my website and get a full picture
+            of my professional and academic journey!
           </p>
         </div>
 
