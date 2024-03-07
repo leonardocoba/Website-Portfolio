@@ -19,11 +19,9 @@ function Project({ project }) {
             {project.madeWithIcons.map((icon, index) => (
               <img
                 key={index}
-                src={`${
-                  process.env.PUBLIC_URL
-                }/logos/${icon.toLowerCase()}.png`}
+                src={`${process.env.PUBLIC_URL}/logos/${icon}`} // Changed skill.logo to icon
                 className="madeWithIcons"
-                alt={icon}
+                alt={icon.split(".")[0]} // Provides a more descriptive alt text by removing the file extension
               />
             ))}
           </div>
