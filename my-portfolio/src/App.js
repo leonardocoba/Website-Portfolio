@@ -22,11 +22,13 @@ function App() {
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth < 300) {
-        setAppWidth("103%"); // Increase width to 103% if width < 300px
+        setAppWidth("105%"); // Increase width to 105% if width < 300px
+      } else if (window.innerWidth < 350) {
+        setAppWidth("104%"); // Increase width to 104% if width < 350px
       } else if (window.innerWidth < 400) {
-        setAppWidth("102%"); // Increase width to 102% if width < 400px
+        setAppWidth("103%"); // Increase width to 103% if width < 400px
       } else if (window.innerWidth < 500) {
-        setAppWidth("101%"); // Increase width to 101% if width < 500px
+        setAppWidth("102%"); // Increase width to 102% if width < 500px
       } else {
         setAppWidth("100%"); // Default width for larger screens
       }
