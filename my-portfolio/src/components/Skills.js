@@ -100,7 +100,7 @@ function SkillItem({ skill, index, startAnimation, onEnd }) {
     >
       <div className="skill-content">
         <img
-          src={`/logos/${skill.logo}`}
+          src={`${process.env.PUBLIC_URL}/logos/${skill.logo}`}
           alt={`${skill.name} logo`}
           style={{ width: "85px", height: "85px", marginBottom: "10px" }}
         />

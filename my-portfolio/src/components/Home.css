@@ -50,7 +50,7 @@
   fill: white; /* White icon fill for dark mode */
 }
 .home {
-  height: 60vh;
+  height: 70vh;
   width: 100%;
   position: relative;
   display: flex;
@@ -59,6 +59,7 @@
   justify-content: center;
   background-color: #1a202c;
   border: 1px solid #000;
+  padding-top: 2vh;
 }
 
 .profile-image-container {
