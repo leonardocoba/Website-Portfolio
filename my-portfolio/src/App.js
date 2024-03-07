@@ -17,6 +17,26 @@ function App() {
   const experienceRef = useRef(null);
   const educationRef = useRef(null);
   const contactRef = useRef(null);
+  const [appWidth, setAppWidth] = useState("100%"); // State to control the app's width
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 300) {
+        setAppWidth("103%"); // Increase width to 103% if width < 300px
+      } else if (window.innerWidth < 400) {
+        setAppWidth("102%"); // Increase width to 102% if width < 400px
+      } else if (window.innerWidth < 500) {
+        setAppWidth("101%"); // Increase width to 101% if width < 500px
+      } else {
+        setAppWidth("100%"); // Default width for larger screens
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+    handleResize(); // Initialize width based on current viewport width
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const [isNightMode, setIsNightMode] = useState(() => {
     const savedMode = localStorage.getItem("isNightMode");
@@ -35,7 +55,7 @@ function App() {
   const textColorClass = isNightMode ? "dark-mode-text" : "light-mode-text";
 
   return (
-    <div className={`App`}>
+    <div className={`App`} style={{ width: appWidth }}>
       <Navbar
         isNightMode={isNightMode}
         toggleMode={toggleMode}

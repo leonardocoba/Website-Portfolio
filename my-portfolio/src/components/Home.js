@@ -1,4 +1,4 @@
-import React from "react";
+import { React, useEffect, useState } from "react";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import DownloadIcon from "@mui/icons-material/Download";
@@ -8,9 +8,26 @@ import "./Home.css"; // Make sure the CSS file is correctly imported
 import ParticleBackground from "./particles";
 
 function Home() {
+  const [showParticles, setShowParticles] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setShowParticles(window.innerWidth > 750);
+    };
+
+    // Set initial state based on current viewport width
+    handleResize();
+
+    // Add event listener for window resize
+    window.addEventListener("resize", handleResize);
+
+    // Cleanup event listener on component unmount
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
     <div className="home">
-      <ParticleBackground />
+      {showParticles && <ParticleBackground />}
 
       <div className="profile-image-container">
         <img src={`${process.env.PUBLIC_URL}/imgs/PFP.png`} alt="Profile" />

@@ -133,12 +133,6 @@ a {
 
 /* Media query for screens under 400px (e.g., iPhone) */
 @media (max-width: 500px) {
-  .home {
-    left: calc(50% - (50vw - 500px) * 0.1);
-    /* Ensure the transform is set for centering */
-    transform: translateX(-50%);
-  }
-
   .Btn {
     padding: 6px 16px; /* Even smaller padding */
     font-size: 14px; /* Even smaller font size */

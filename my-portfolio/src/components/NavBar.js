@@ -11,14 +11,43 @@ function Navbar({ sectionRefs, isNightMode }) {
     contact: useRef(null),
   };
   const sliderRef = useRef(null);
+  const [navStyle, setNavStyle] = useState({ fontSize: "1rem" }); // State for dynamic style
 
   useEffect(() => {
     if (activeNav && navRefs[activeNav].current) {
       const { offsetLeft, clientWidth } = navRefs[activeNav].current;
       sliderRef.current.style.width = `${clientWidth}px`;
       sliderRef.current.style.left = `${offsetLeft}px`;
+      // Optionally adjust the slider's height to match the text size
     }
-  }, [activeNav]);
+  }, [activeNav, navStyle]); // Include navStyle in the dependency array to update slider when text size changes
+
+  useEffect(() => {
+    const handleResize = () => {
+      // Set default size for larger screens
+      let newSize = "1em";
+
+      // Adjust text size based on viewport width
+      if (window.innerWidth < 400) {
+        newSize = "0.4rem";
+      } else if (window.innerWidth < 500) {
+        newSize = "0.6rem";
+      } else if (window.innerWidth < 750) {
+        newSize = "0.8rem";
+      }
+
+      // Update the navStyle state to apply the new size
+      setNavStyle({ fontSize: newSize });
+    };
+
+    // Add event listener for window resize
+    window.addEventListener("resize", handleResize);
+    // Call the handler right away so state gets updated with initial window size
+    handleResize();
+
+    // Remove event listener on cleanup
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const scrollToSection = (section) => {
     if (sectionRefs[section].current) {
@@ -28,7 +57,7 @@ function Navbar({ sectionRefs, isNightMode }) {
 
   useEffect(() => {
     const handleScroll = () => {
-      const currentScrollPosition = window.scrollY + window.innerHeight / 2; // Adjust as needed
+      const currentScrollPosition = window.scrollY + window.innerHeight / 2;
 
       Object.keys(sectionRefs).forEach((key) => {
         const ref = sectionRefs[key].current;
@@ -60,7 +89,7 @@ function Navbar({ sectionRefs, isNightMode }) {
         alignItems: "center",
         width: "50%",
         height: "4em",
-        backgroundColor: isNightMode ? "#0a192f" : "#F8F6F4", // Example color change for dark mode
+        backgroundColor: isNightMode ? "#0a192f" : "#F8F6F4",
         borderRadius: "1rem",
         position: "fixed",
         top: "2rem",
@@ -68,6 +97,7 @@ function Navbar({ sectionRefs, isNightMode }) {
         transform: "translateX(-50%)",
         opacity: "0.8",
         zIndex: "2",
+        ...navStyle, // Apply dynamic style here
       }}
     >
       <div
@@ -75,6 +105,7 @@ function Navbar({ sectionRefs, isNightMode }) {
           display: "flex",
           justifyContent: "space-around",
           width: "100%",
+          ...navStyle, // Apply dynamic style to text as well
         }}
       >
         {[
@@ -92,11 +123,12 @@ function Navbar({ sectionRefs, isNightMode }) {
             style={{
               textDecoration: "none",
               color: isNightMode ? "white" : "black",
+              ...navStyle, // Ensure text size changes are applied
             }}
             onClick={(e) => {
-              e.preventDefault(); // Prevents the default anchor link behavior
-              setActiveNav(item); // Sets the active nav state
-              scrollToSection(item); // Calls the function to scroll to the section
+              e.preventDefault();
+              setActiveNav(item);
+              scrollToSection(item);
             }}
           >
             {item.charAt(0).toUpperCase() + item.slice(1)}
