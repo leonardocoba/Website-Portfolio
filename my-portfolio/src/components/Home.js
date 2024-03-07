@@ -5,12 +5,12 @@ import DownloadIcon from "@mui/icons-material/Download";
 import "./Home.css"; // Make sure the CSS file is correctly imported
 
 // Import the ParticleBackground component if used
-// import ParticleBackground from "./particles";
+import ParticleBackground from "./particles";
 
 function Home() {
   return (
     <div className="home">
-      {/* <ParticleBackground /> Optional Particle Background */}
+      <ParticleBackground />
 
       <div className="profile-image-container">
         <img src={`${process.env.PUBLIC_URL}/imgs/PFP.png`} alt="Profile" />

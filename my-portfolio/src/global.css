@@ -4,12 +4,13 @@ body {
   font-optical-sizing: auto;
   font-weight: 400; /* Use the default weight; override as needed in component-specific CSS */
   font-style: normal;
-  background-color: #fffafa; /* It's better to move the background color here for consistency */
+  background-color: #1a202c; /* */
 }
 .mode_button {
   position: fixed; /* Keep the button in the same place */
   bottom: 20px; /* Distance from the bottom */
-  right: 20px; /* Distance from the right */
+  right: auto; /* Remove the right positioning */
+  left: calc(100% - 70px); /* Distance from the right */
   width: 50px; /* Width of the button, adjusted to a reasonable size */
   height: 50px; /* Height of the button, adjusted to a reasonable size */
   border-radius: 50%; /* Make it circular */
@@ -18,7 +19,6 @@ body {
   display: flex; /* Center the content inside the button */
   justify-content: center; /* Center horizontally */
   align-items: center; /* Center vertically */
-
   z-index: 1000;
   transition: transform 0.3s ease; /* Smooth transition for the transform */
 }
@@ -48,4 +48,35 @@ body {
 /* Dark mode text color */
 .dark-mode-text {
   color: #fff; /* White for dark mode */
+}
+@media (max-width: 750px) {
+  .mode_button {
+    left: calc(100% - 100px); /* Adjust as needed for smaller screens */
+  }
+}
+
+@media (max-width: 400px) {
+  .mode_button {
+    left: calc(100% - 75x); /* Adjust as needed for even smaller screens */
+  }
+}
+
+.App {
+  width: 100%;
+  min-width: 100%;
+  justify-content: left;
+  align-items: left;
+  /* Other base styles if necessary */
+}
+
+/* Styles for App class when it's night mode */
+.App.night-mode {
+  background-color: #1a202c; /* Dark background for night mode */
+  /* Other styles specific to night mode */
+}
+
+/* Styles for App class when it's day mode */
+.App.day-mode {
+  background-color: #ffffff; /* Light background for day mode */
+  /* Other styles specific to day mode */
 }

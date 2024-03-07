@@ -59,10 +59,7 @@ function Contact({ isNightMode }) {
         You can contact me at leonardocobaleda@ulf.edu or fill out the form
         below.
       </p>
-      <div
-        className={`card ${isNightMode ? "dark" : ""}`}
-        style={{ maxWidth: "500px", width: "140%" }}
-      >
+      <div className={`card ${isNightMode ? "dark" : ""}`}>
         <span className="title">Leave a Comment</span>
         <form className="form" ref={form} onSubmit={sendEmail}>
           <div className="group">

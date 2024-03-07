@@ -2,9 +2,43 @@
   background-color: #fff;
   border-radius: 10px;
   padding: 20px;
-  width: 350px;
+  width: 600px;
   display: flex;
   flex-direction: column;
+}
+@media (max-width: 750px) {
+  .card {
+    width: 500px; /* Slightly smaller card width */
+  }
+}
+
+/* Media query for screens under 500px */
+@media (max-width: 500px) {
+  .card {
+    width: 350px; /* Further reduce card width */
+  }
+}
+
+/* Media query for screens under 400px */
+@media (max-width: 400px) {
+  .card {
+    width: 250px; /* Further reduce card width */
+  }
+}
+
+/* Media query for screens under 300px */
+@media (max-width: 300px) {
+  .card {
+    width: 125x; /* Further reduce card width */
+  }
+}
+
+/* Centering the title under 474px */
+@media (max-width: 474px) {
+  .contact-title {
+    /* Assuming you add this class to your title */
+    text-align: center;
+  }
 }
 
 .title {

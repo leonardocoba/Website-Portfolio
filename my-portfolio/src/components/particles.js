@@ -77,16 +77,16 @@ const ParticleBackground = () => {
           density: {
             enable: true,
           },
-          value: 50, // Updated from 80 to 130 to add 50 more particles
+          value: 30, // Updated from 80 to 130 to add 50 more particles
         },
         opacity: {
-          value: 0.5,
+          value: 0.35,
         },
         shape: {
           type: "circle",
         },
         size: {
-          value: { min: 5, max: 10 },
+          value: { min: 2, max: 5 },
         },
       },
       detectRetina: true,

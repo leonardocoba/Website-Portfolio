@@ -1,7 +1,42 @@
+import React, { useState, useEffect } from "react";
+
 function Education({ isNightMode }) {
-  // Define the background color for dark mode
-  const darkModeBackgroundColor = "rgb(38, 44, 58)"; // This is the same blue-grey color used before
-  const lightModeBackgroundColor = "lightgrey"; // Define the color for light mode
+  const darkModeBackgroundColor = "rgb(38, 44, 58)";
+  const lightModeBackgroundColor = "lightgrey";
+  const [responsiveStyle, setResponsiveStyle] = useState({});
+  const [titleStyle, setTitleStyle] = useState({});
+
+  useEffect(() => {
+    const updateStyle = () => {
+      const width = window.innerWidth;
+      let newStyle = {};
+      let newTitleStyle = {};
+
+      if (width <= 750) {
+        newStyle = { ...newStyle, maxWidth: "90%" };
+      }
+      if (width <= 500) {
+        newStyle = { ...newStyle, flexDirection: "column", padding: "15px" };
+      }
+      if (width <= 400) {
+        newStyle = { ...newStyle, fontSize: "smaller" };
+      }
+      if (width <= 300) {
+        newStyle = { ...newStyle, padding: "10px" };
+      }
+      if (width <= 474) {
+        newTitleStyle = { ...newTitleStyle, textAlign: "center" }; // Center the title when width is under 474px
+      }
+
+      setResponsiveStyle(newStyle);
+      setTitleStyle(newTitleStyle);
+    };
+
+    window.addEventListener("resize", updateStyle);
+    updateStyle(); // Initialize style on component mount
+
+    return () => window.removeEventListener("resize", updateStyle);
+  }, []);
 
   return (
     <div
@@ -10,8 +45,8 @@ function Education({ isNightMode }) {
         flexDirection: "column",
         alignItems: "center",
         textAlign: "center",
-        paddingTop: "12vh", // Space above the title
-        paddingBottom: "5vh", // Space below the content
+        paddingTop: "12vh",
+        paddingBottom: "5vh",
       }}
     >
       <h1 style={{ marginBottom: "2vh" }}>My Education</h1>
@@ -26,7 +61,8 @@ function Education({ isNightMode }) {
           overflow: "hidden",
           width: "100%",
           maxWidth: "750px",
-          margin: "0 auto", // Centers the card in the container
+          margin: "0 auto",
+          ...responsiveStyle, // Apply dynamic styles based on viewport width
         }}
       >
         <div
@@ -40,20 +76,22 @@ function Education({ isNightMode }) {
           <img
             src={`${process.env.PUBLIC_URL}/imgs/uf.png`}
             alt="University Logo"
-            style={{ maxHeight: "100%", maxWidth: "250px" }} // Adjusted image size
+            style={{ maxHeight: "100%", maxWidth: "250px" }}
           />
         </div>
         <div
           style={{
-            width: "70%",
-            padding: "20px", // Uniform padding for top and bottom
+            width: "100%",
+            padding: "20px",
             textAlign: "left",
             display: "flex",
             flexDirection: "column",
-            justifyContent: "center", // This centers the content vertically
+            justifyContent: "center",
           }}
         >
-          <h3 style={{ margin: "0", lineHeight: "1.5" }}>
+          <h3 style={{ margin: "0", lineHeight: "1.5", ...titleStyle }}>
+            {" "}
+            {/* Apply dynamic styles to title */}
             University of Florida
           </h3>
           <p style={{ lineHeight: "1.5" }}>

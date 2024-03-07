@@ -35,7 +35,7 @@ function App() {
   const textColorClass = isNightMode ? "dark-mode-text" : "light-mode-text";
 
   return (
-    <div className={`App ${modeClass}`}>
+    <div className={`App`}>
       <Navbar
         isNightMode={isNightMode}
         toggleMode={toggleMode}
@@ -49,9 +49,8 @@ function App() {
         }}
       />
 
-      <div className="home" ref={homeRef}>
-        <Home />
-      </div>
+      <Home className="home" />
+
       <div
         className={`Components ${modeClass} ${textColorClass}`}
         style={{
@@ -67,7 +66,7 @@ function App() {
         <div className="projects" ref={projectsRef}>
           <Projects isNightMode={isNightMode} />
         </div>
-        <div className="education" ref={educationRef}>
+        <div className="education" ref={educationRef} style={{ zIndex: "10" }}>
           <Education isNightMode={isNightMode} />
         </div>
         <div className="contact" ref={contactRef}>

@@ -20,13 +20,33 @@ function Skills() {
     { name: "Microsoft Office", logo: "MicrosoftOffice.png" },
     { name: "Swift UI", logo: "SwiftUI.png" },
   ];
+  const [skillsPerRow, setSkillsPerRow] = useState(5);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 750) {
+        setSkillsPerRow(4);
+      }
+      if (window.innerWidth < 500) {
+        setSkillsPerRow(3);
+      } else {
+        setSkillsPerRow(5);
+      }
+      // Add more conditions if needed for smaller sizes
+    };
+
+    window.addEventListener("resize", handleResize);
+    handleResize(); // Call once initially to set the initial state
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const chunkSkills = (skills, chunkSize) =>
     Array.from({ length: Math.ceil(skills.length / chunkSize) }, (_, i) =>
       skills.slice(i * chunkSize, i * chunkSize + chunkSize)
     );
 
-  const skillRows = chunkSkills(skills, 5);
+  const skillRows = chunkSkills(skills, skillsPerRow);
   const [animatedRows, setAnimatedRows] = useState([]);
 
   const handleAnimationEnd = (rowIndex) => {
@@ -34,7 +54,7 @@ function Skills() {
   };
 
   return (
-    <div style={{ textAlign: "center", paddingTop: "15vh", minHeight: "50vh" }}>
+    <div className="skills-container">
       <h1 style={{ paddingBottom: "5vh" }}>My Skills</h1>
       {skillRows.map((row, rowIndex) => (
         <SkillRow
@@ -102,7 +122,6 @@ function SkillItem({ skill, index, startAnimation, onEnd }) {
         <img
           src={`${process.env.PUBLIC_URL}/logos/${skill.logo}`}
           alt={`${skill.name} logo`}
-          style={{ width: "85px", height: "85px", marginBottom: "10px" }}
         />
         <span>{skill.name}</span>
       </div>

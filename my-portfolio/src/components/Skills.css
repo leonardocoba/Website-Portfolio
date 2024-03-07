@@ -1,11 +1,8 @@
 .skills-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-  justify-items: center;
-  gap: 20px;
-  padding: 0 20px;
+  text-align: center;
+  padding-top: 15vh;
+  min-height: 50vh;
+  width: 100%;
 }
 
 .skills-row {
@@ -68,5 +65,27 @@
   100% {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+@media (max-width: 500px) {
+  .skills-container {
+    /* Assuming you want to center the container and adjust its position like the .home element */
+    left: 10%;
+  }
+
+  .skill-item.in-view {
+    width: calc(85px - (500px - 100vw) * 0.9%);
+    height: calc(85px - (500px - 100vw) * 0.9%);
+  }
+
+  .skill-content img {
+    /* Decrease the size of skill images by 1% for every 10px below 500px */
+    width: calc(85px - (500px - 100vw) * 0.9%);
+    height: calc(85px - (500px - 100vw) * 0.9%);
+  }
+
+  /* Adjust the scale of the hover effect based on the viewport width */
+  .skill-content:hover {
+    transform: scale(calc(1 - (500px - 100vw) * 0.005));
   }
 }
